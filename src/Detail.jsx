@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import { feedDetail } from "./API.jsx";
+import { feedDetail, archiveFeed } from "./API.jsx";
+import CallDate from "./CallDate.jsx";
 
 const Container = styled.div``;
 const DetailBox = styled.div``;
@@ -29,6 +30,12 @@ const Detail = () => {
 
   const { id } = useParams();
 
+  // User can toggle when click button
+  const toggleArchive = (id, archived) => {
+    archiveFeed(id, !archived);
+    setArchived(!archived);
+  };
+
   useEffect(() => {
     const fetchDetail = () => {
       feedDetail(id)
@@ -36,12 +43,12 @@ const Detail = () => {
         .then((res) => {
           console.log(res);
           setDetail(res);
-          setArchived(res.is_archived);
+          setArchived(res.is_archived == true);
           setLoading(false);
         });
     };
     fetchDetail();
-  }, []);
+  }, [archived]);
 
   return (
     <Container>
@@ -52,8 +59,11 @@ const Detail = () => {
             <From>{detail.from}</From>
             <To>{detail.to}</To>
           </UserInfo>
+          <Direction>{detail.direction}</Direction>
           <Via>{detail.via}</Via>
-          <Button>{`${
+          <CallDate date={detail.created_at} detail={true} />
+          <Duration>{`${detail.duration} mins`}</Duration>
+          <Button onClick={() => toggleArchive(id, archived)}>{`${
             detail.is_archived ? "Archived" : "Not Archived"
           }`}</Button>
         </DetailBox>

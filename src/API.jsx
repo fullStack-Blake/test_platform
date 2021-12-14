@@ -6,5 +6,7 @@ const api = axios.create({
 
 export const feeds = () => api.get("activities");
 export const feedDetail = (id) => api.get(`activities/${id}`);
-// export const fetchArchiveCall = (id) =>
-//   fetch(`https://aircall-job.herokuapp.com/activities/${id}`);
+export const archiveFeed = (id = 7834, toggle = false) =>
+  api.post(`activities/${id}`, {
+    is_archived: toggle,
+  });

@@ -53,7 +53,6 @@ const Feed = () => {
             return arr1;
             // set initial value as an empty array for result
           }, []);
-          console.log(newArray);
           return newArray;
         })
         .then((res) => {
