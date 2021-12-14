@@ -1,17 +1,20 @@
-import React from 'react'
-import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
-import Feed from './Feed.jsx'
+import React from "react";
+import { HashRouter, Route, Redirect, Switch } from "react-router-dom";
+import Feed from "./Feed.jsx";
+import Detail from "./Detail.jsx";
 
 const Router = () => (
-    <div>
-        <BrowserRouter>
-            <Switch>
-                <Route path="/" component={Feed} />
-                <Route path="/feed" exact component={Feed} />
-                <Redirect path="*" to="/" />
-            </Switch>
-        </BrowserRouter>
-    </div>
-)
+  <div>
+    <HashRouter>
+      <Switch>
+        <Route path="/" exact component={Feed} />
+        <Route path="/feed" exact component={Feed} />
+        <Route path="/detail/:id" exact component={Detail} />
 
-export default Router
+        <Redirect path="*" to="/" />
+      </Switch>
+    </HashRouter>
+  </div>
+);
+
+export default Router;

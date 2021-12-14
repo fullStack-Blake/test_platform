@@ -16,7 +16,7 @@ const Image = styled.div`
   height: 30px;
 `;
 const CallInfo = styled.div`
-  width: 70%;
+  width: 150px;
 `;
 const To = styled.div`
   font-size: 0.8em;
@@ -42,13 +42,12 @@ const CallBox = ({ to = "undefined", from, time, bound }) => {
   const dayOrNight = hour >= 12 ? "PM" : "AM";
   if (hour > 12) hour -= 12;
   const tried = to ? to.split(" ") : null;
-  console.log(tried);
 
   return (
     <Container>
       <Image />
       <CallInfo>
-        <From>{from}</From>
+        <From>{from.length > 15 ? `${from.slice(0, 14)}...` : from}</From>
         <To>tried to call on {tried ? tried[0] : "undefined"}</To>
       </CallInfo>
       <Time>
