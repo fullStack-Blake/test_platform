@@ -4,16 +4,16 @@ import Feed from "./Feed.jsx";
 import Detail from "./Detail.jsx";
 import Archive from "./Archive.jsx";
 import Tab from "./Tab.jsx";
+import Header from "./Header.jsx";
 
 const Router = () => (
   <div>
     <HashRouter>
-      <Tab />
+      <Header />
       <Switch>
-        <Route path="/" exact component={Archive} />
-        <Route path="/feed" exact component={Feed} />
+        <Route path="/" exact component={Feed} />
+        <Route path="/archive" exact component={Archive} />
         <Route path="/detail/:id" exact component={Detail} />
-
         <Redirect path="*" to="/" />
       </Switch>
     </HashRouter>

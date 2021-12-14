@@ -8,7 +8,6 @@ import Feed from "./Feed.jsx";
 const App = () => {
   return (
     <div className="container">
-      <Header />
       <Router />
     </div>
   );

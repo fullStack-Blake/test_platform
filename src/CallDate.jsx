@@ -1,4 +1,10 @@
 import React from "react";
+import styled from "styled-components";
+
+const Container = styled.div`
+  font-family: "Baloo Bhaijaan 2", cursive;
+  font-size: 1.2em;
+`;
 
 const CallDate = ({ date, detail }) => {
   const baseDate = new Date(date);
@@ -23,7 +29,7 @@ const CallDate = ({ date, detail }) => {
   const min = baseDate.getMinutes();
 
   return (
-    <div>
+    <Container>
       {detail ? (
         <div>
           <div>
@@ -38,7 +44,7 @@ const CallDate = ({ date, detail }) => {
           {month.toUpperCase()}, {day}, {year}
         </div>
       )}
-    </div>
+    </Container>
   );
 };
 

@@ -25,7 +25,7 @@ const DLink = styled(Link)`
   }
 `;
 
-const Feed = () => {
+const Feed = ({ isFeed = true }) => {
   const [feed, setFeed] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -33,7 +33,10 @@ const Feed = () => {
     const fetchFeed = () => {
       feeds()
         .then((res) => res.data)
-        .then((res) => res.filter((res) => !res.is_archived))
+        // Feed only shows non-archived calls
+        .then((res) =>
+          res.filter((res) => (isFeed ? !res.is_archived : res.is_archived))
+        )
         .then((res) => {
           var ref = {};
 
@@ -56,6 +59,7 @@ const Feed = () => {
           return newArray;
         })
         .then((res) => {
+          console.log(res);
           setFeed(res);
           setLoading(false);
         });
@@ -73,6 +77,7 @@ const Feed = () => {
               {res.map((res) => (
                 <DLink to={`/detail/${res.id}`} key={res.id}>
                   <CallBox
+                    call_type={res.call_type}
                     to={res.to}
                     from={res.from}
                     time={res.created_at}
