@@ -26,7 +26,7 @@ const Button = styled.button``;
 const Detail = () => {
   const [detail, setDetail] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [archived, setArchived] = useState();
+  const [archived, setArchived] = useState(null);
 
   const { id } = useParams();
 
