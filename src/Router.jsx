@@ -10,17 +10,15 @@ import Feedsss from "./Feedsss.jsx";
 // import Feedsss from "./Detail.jsx";
 
 const Router = () => (
-  <div>
-    <BrowserRouter>
-      <Header />
-      <Switch>
-        <Route path="/" exact component={Feeds} />
-        <Route path="/archive" exact component={Feedss} />
-        <Route path="/detail/:id" exact component={Feedsss} />
-        <Redirect path="*" to="/" />
-      </Switch>
-    </BrowserRouter>
-  </div>
+  <BrowserRouter>
+    <Header />
+    <Switch>
+      <Route path="/" exact component={Feeds} />
+      <Route path="/archive" exact component={Feedss} />
+      <Route path="/detail/:id" exact component={Feedsss} />
+      <Redirect path="*" to="/" />
+    </Switch>
+  </BrowserRouter>
 );
 
 export default Router;
