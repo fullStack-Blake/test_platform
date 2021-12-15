@@ -4,13 +4,12 @@
   "description": "Leap test",
   "main": "index.js",
   "repository": "",
-  "author": "Blake Han",
+  "author": "",
   "license": "",
   "private": false,
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
-    "build": "webpack --mode production",
-    "prod": "webpack-dev-server --mode production"
+    "build": "webpack --mode production"
   },
   "dependencies": {
     "axios": "^0.24.0",
