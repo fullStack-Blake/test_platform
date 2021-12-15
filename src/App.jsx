@@ -1,7 +1,6 @@
 import React from "react";
-// import ReactDOM from "react-dom";
+import ReactDOM from "react-dom";
 import Router from "./Router.jsx";
-// import Header from "./Header.jsx";
 
 const App = () => {
   return (
@@ -10,5 +9,7 @@ const App = () => {
     </div>
   );
 };
+
+ReactDOM.render(<App />, document.getElementById("app"));
 
 export default App;
