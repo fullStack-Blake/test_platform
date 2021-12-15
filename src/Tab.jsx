@@ -38,10 +38,10 @@ const TLink = styled(Link)`
 const Tab = () => {
   return (
     <Container>
-      <TLink to={"/"}>
+      <TLink to="/">
         <Feed>Feed</Feed>
       </TLink>
-      <TLink to={"/archive"}>
+      <TLink to="/archive">
         <Archive>Archive</Archive>
       </TLink>
     </Container>

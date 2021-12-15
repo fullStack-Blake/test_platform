@@ -16,7 +16,7 @@ const LogoContainer = styled.div`
 const Header = () => {
   return (
     <Container>
-      <LogoContainer>
+      {/* <LogoContainer>
         <svg
           width="100px"
           height="70px"
@@ -75,7 +75,7 @@ const Header = () => {
             />
           </g>
         </svg>
-      </LogoContainer>
+      </LogoContainer> */}
       <Tab />
     </Container>
   );
