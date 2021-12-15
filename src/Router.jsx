@@ -11,7 +11,7 @@ import Feedsss from "./Feedsss.jsx";
 
 const Router = () => (
   <BrowserRouter>
-    <Header />
+    {/* <Header /> */}
     <Switch>
       <Route path="/" exact component={Feeds} />
       <Route path="/archive" exact component={Feedss} />
